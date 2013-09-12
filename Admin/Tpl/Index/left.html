@@ -1,0 +1,68 @@
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+    $(".sidebar_nav li span").click(
+		function(){
+
+     // $(this).find("i").Class("icon-plus-sign");
+      
+			if($(this).next("ul").is(":hidden")) 
+				{	
+          $(this).find("i").removeClass(" icon-plus-sign");
+          $(this).find("i").addClass(" icon-minus-sign");
+          $(".tree").find("i").removeClass(" icon-minus");
+          $(".tree").find("i").addClass("icon-plus");
+					$(".sidebar_nav li ul").slideUp(300);
+					$(this).next("ul").slideDown(300);
+				}
+			else
+				{
+           $(this).find("i").removeClass(" icon-minus-sign");
+          $(this).find("i").addClass(" icon-plus-sign");
+					$(this).next("ul").slideUp(300);
+				};
+	});
+
+  $(".tree").click(
+    function(){
+
+      if($(this).next("ul").is(":hidden"))
+      {
+        $(this).find("i").removeClass(" icon-plus");
+        $(this).find("i").addClass(" icon-minus");
+        $(this).next("ul").slideDown(300);
+      }
+      else
+      {
+         $(this).find("i").removeClass(" icon-minus");
+          $(this).find("i").addClass(" icon-plus");
+        $(this).next("ul").slideUp(300);
+      }
+  });
+
+
+});
+</script>
+<div class="content">
+  <div class="sidebar_nav">
+    <ul class="unstyled">
+      <li><span><a href="#"><i class="icon-plus-sign"></i>Ngx_lua_missile_defense</a></span> 
+        <ul class="unstyled hide">
+          <li><a href="{:U('Ngx_lua/rule')}" target="myframe" class="tree"><i class="icon-plus-sign"></i>规则</a>           
+                <ul class="unstyled">
+                  <li><a href="{:U('Ngx_lua/global_rule')}" target="myframe"><i class="caret_left"></i>Global</a></li>
+                  <li><a href="{:U('Ngx_lua/get')}" target="myframe"><i class="caret_left"></i>Get</a></li>
+                  <li><a href="{:U('Ngx_lua/post')}" target="myframe"><i class="caret_left"></i>Post</a></li>
+                  <li><a href="{:U('Ngx_lua/useragent')}" target="myframe"><i class="caret_left"></i>User-Agent</a></li>
+                  <li><a href="{:U('Ngx_lua/whitelist')}" target="myframe"><i class="caret_left"></i>规则白名单</a></li>
+                  <li><a href="{:U('Ngx_lua/ipwhitelist')}" target="myframe"><i class="caret_left"></i>IP白名单</a></li>
+                  <li><a href="{:U('Ngx_lua/ipblacklist')}" target="myframe"><i class="caret_left"></i>IP黑名单</a></li>
+                </ul>       
+          </li>
+          <li><a href="{:U('Ngx_lua/log')}" target="myframe"><i class="icon-plus"></i>日志</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
+

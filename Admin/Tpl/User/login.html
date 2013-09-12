@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{$SiteName}</title>
+<link href="__PUBLIC__/Css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="login">
+		<div id="login_header">
+			<h1 class="login_logo">
+				<a href="{$SiteURL}" class="sitename">{$SiteName}</a>
+			</h1>
+			<div class="login_headerContent">
+				<div class="navList">
+					<ul>
+						<li><a href="{$SiteURL}">{$SiteName}</a></li>
+						<li><a href="http://www.imsuzie.com" target="_blank">帮助</a></li>
+					</ul>
+				</div>
+				<h2 class="login_title">登录</h2>
+			</div>
+		</div>
+		<div id="login_content">
+			<div class="loginForm">
+				<form action="{:U('User/checklogin')}" method="post">
+					<p>
+						<label>用户名：</label>
+						<input type="text" name="username" size="20" class="login_input" />
+					</p>
+					<p>
+						<label>密码：</label>
+						<input type="password" name="password" size="20" class="login_input" />
+					</p>
+					<p>
+						<label>验证码：</label>
+						<input class="code" type="text" size="5" name="verify"/>
+						<span><img id="verifyImg" src='index.php?m=User&a=verify' onclick="fleshVerify()"/></span>
+					</p>
+					<div class="login_bar">
+						<input class="sub" type="submit" value="" id="sub"/>
+						<input type="hidden" name="admin"/>
+					</div>
+				</form>
+			</div>
+			<div class="login_banner"><img src="__PUBLIC__/images/login_banner.jpg" /></div>
+			<div class="login_main">
+				<ul class="helpList">
+					<li><a href="#">说了不一定有机会，但不说一定没机会</a></li>
+					<li><a href="#">今天最高的评分，是明天最低的要求</a></li>
+					<li><a href="#">没有一个英雄能把一场淮海战役打下来</a></li>
+				</ul>
+				<div class="login_inner">
+					<p>不要说你的功夫有多深，师傅有多厉害，门派有多深奥。功夫两个字，一横一竖。<p>
+					<p>-----by 叶问</p>
+				</div>
+			</div>
+		</div>
+		<div id="login_footer">
+			<span>Copyright &copy; 2013 <a href="http://www.imsuzie.com" target="_blank">suziewong</a> Inc. All Rights Reserved.</span>
+		</div>
+	</div>
+</body>
+<script language="JavaScript">
+function fleshVerify(){
+    //重载验证码
+    var time = new Date().getTime();
+    document.getElementById('verifyImg').src= 'index.php?m=User&a=verify&'+time;
+}
+</script>
+</html>

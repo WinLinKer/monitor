@@ -1,0 +1,23 @@
+   <include file="Public:header" />
+        <div class="page-header">
+          <h3 class="fl">信息概览</h3>
+         <div class="user_message fr"><i class="icon-user"></i>当前权限组：<if condition="($Think.session.userpower eq 0)">管理员<else />普通用户</if><i class="icon-time"></i>登录时间 <empty name="Think.session.lastlogintime">首次登陆 <else />{$Think.session.lastlogintime|date="Y-m-d",###}</empty></div>
+          <div class="cl"></div>
+        </div>
+        <div class="hero-unit home_prompt">
+          <h1>在这里你能干什么？</h1>
+          <ol>
+            <li class="lead">Ngx_lua_missile_defense</li>
+          </ol>
+        </div>
+        
+        <!--end 首页提示信息-->
+        <div class="copyright"></div>
+
+      <!--end Right Content-->   
+      
+<script type="text/javascript">
+    $(".copyright").load("{:U('Index/copyright')}");
+</script>
+</body>
+</html>
